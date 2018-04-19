@@ -15,24 +15,29 @@ char file02[BUFF_SIZE];
 
 void ls()
 {
-	printf("start \n");
+//	printf("start \n");
     DIR *dp;
     struct dirent *ep;
 	int fd;
 	off_t sz_file;
+
+	int i=0;
+
 	dp = opendir("./");
    
 	if(dp != NULL)
 	{
-		printf("write \n");
+	//	printf("write \n");
 		while((ep = readdir(dp)) != NULL )
 		{
-		//	fd = open(ep->d_name,O_RDONLY);
-		//	sz_file =lseek(fd, 0, SEEK_END);
-			puts (ep->d_name);
-		//	printf("%s %ld",ep->d_name, sz_file);
+		//	printf("%d",i);
+			i++;
+			fd = open(ep->d_name,O_RDONLY);
+			sz_file =lseek(fd, 0, SEEK_END);
+			printf("%-20s\t %ld\n",ep->d_name, sz_file);
+			close(fd);
 		}
-		closedir(dp);
+//		printf("%d",i);
 	}
 	else
 	{
