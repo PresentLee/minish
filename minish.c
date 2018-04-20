@@ -34,7 +34,7 @@ void ls()
 			i++;
 			fd = open(ep->d_name,O_RDONLY);
 			sz_file =lseek(fd, 0, SEEK_END);
-			printf("%-20s\t %ld\n",ep->d_name, sz_file);
+			printf("%-15s\t %ld\n",ep->d_name, sz_file);
 			close(fd);
 		}
 //		printf("%d",i);

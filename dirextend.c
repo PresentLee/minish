@@ -7,10 +7,11 @@
 #include <sys/stat.h>
 #include <time.h>
 
-ssize_t read(int fd, void*buf, size_t nbytes)
-{
 	time_t current_time;
 	struct tm *times;
+
+ssize_t read(int fd, void*buf, size_t nbytes)
+{
 
 	current_time = time(NULL);
 	times = localtime(&current_time);
@@ -23,8 +24,6 @@ ssize_t read(int fd, void*buf, size_t nbytes)
 
 ssize_t write(int fd, const void *buf, size_t n)
 {
-	time_t current_time;
-	struct tm *times;
 
 	current_time = time(NULL);
 	times = localtime(&current_time);
@@ -37,8 +36,6 @@ ssize_t write(int fd, const void *buf, size_t n)
 
 int unlink(const char *path)
 {
-	time_t current_time;
-	struct tm *times;
 
 	current_time = time(NULL);
 	times = localtime(&current_time);
@@ -51,8 +48,6 @@ int unlink(const char *path)
 
 int open (const char *pathname, int flags, mode_t MODE)
 {
-	time_t current_time;
-	struct tm *times;
 
 	current_time = time(NULL);
 	times = localtime(&current_time);
@@ -65,8 +60,6 @@ int open (const char *pathname, int flags, mode_t MODE)
 
 int close(int fd)
 {
-	time_t current_time;
-	struct tm *times;
 
 	time( &current_time);
 	times = localtime(&current_time);
