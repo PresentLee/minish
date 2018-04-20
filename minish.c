@@ -87,7 +87,7 @@ int cp(char *argv, char *argv2)
 
 int rm(char *argv)
 {
-	if (-1 == remove(argv))
+	if (-1 == unlink(argv))
 		printf("fail");
 	return 0;
 }
